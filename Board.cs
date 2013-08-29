@@ -19,15 +19,15 @@ namespace GridWorld
         /// </summary>
         internal double GetEstimatedResult(int id)
         {
-            
-            return (GetSquareCount(Active(id)) * 100.0) +
+            // NB you need to add a lot more in here. This is more than half of your coursework.
+            return ((GetSquareCount(Active(id)) * 100.0) +
                 (GetSquareCount(Passive(id)) * 1.0) +
                 (GetSquareCount(Active(Opp(id))) * -100.0) +
                 (GetSquareCount(Passive(Opp(id))) * -1.0) +
                 (GetFreeMoves(Active(id)).Count * 10.0) +
-                (GetFreeMoves(Active(Opp(id))).Count * -10.0) + // * rnd.Next(-10, 10);
-                (Get3x3Blocks(Passive(id)) * 10000) +
-                (Get3x3Blocks(Passive(Opp(id))) * -10000);
+                (GetFreeMoves(Active(Opp(id))).Count * -10.0) +
+                (Get3x3Blocks(Passive(id)) * 50) +
+                (Get3x3Blocks(Passive(Opp(id))) * -50) * rnd.Next(-10, 10));
         }
 
 
